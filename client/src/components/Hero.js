@@ -85,63 +85,59 @@ const Hero = ({ clinicData }) => {
           </div>
         </div>
 
-        <div className="hero__right hero-animate">
-          <div className="hero__card-wrap">
-            {/* Main visual card */}
-            <div className="hero__card">
-              <div className="hero__tooth-graphic">
-                <svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg" className="hero__tooth-svg">
-                  {/* Glowing tooth */}
-                  <path
-                    d="M100 15 C70 15, 30 38, 30 70 C30 95, 40 115, 50 145 C60 175, 64 220, 78 220 C92 220, 96 185, 100 185 C104 185, 108 220, 122 220 C136 220, 140 175, 150 145 C160 115, 170 95, 170 70 C170 38, 130 15, 100 15 Z"
-                    fill="url(#toothGrad)"
-                    stroke="#2DD4BF"
-                    strokeWidth="2"
-                  />
-                  {/* Shine */}
-                  <path
-                    d="M70 40 C65 50, 62 65, 64 75"
-                    stroke="white"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    opacity="0.5"
-                  />
-                  <defs>
-                    <radialGradient id="toothGrad" cx="50%" cy="30%" r="60%">
-                      <stop offset="0%" stopColor="rgba(45,212,191,0.3)" />
-                      <stop offset="100%" stopColor="rgba(45,212,191,0.05)" />
-                    </radialGradient>
-                  </defs>
-                </svg>
-              </div>
+       <div className="hero__right hero-animate">
+  <div className="hero__card-wrap">
+    {/* Main visual card */}
+    <div className="hero__card">
+     <div className="hero__clinic-visual">
+  <picture>
+    <source srcSet="/images/clinick.png" type="image/png" />
 
-              {/* Floating stat cards */}
-              <div className="hero__stat-card hero__stat-card-1">
-                <div className="hero__stat-icon">😁</div>
-                <div>
-                  <div className="hero__stat-value">5000+</div>
-                  <div className="hero__stat-label">Happy Smiles</div>
-                </div>
-              </div>
+    <img
+      src="/images/clinick.png"
+      alt={`${clinicData?.name || 'Zaid Dental Clinic'} clinic`}
+      className="hero__clinic-image"
+    />
+  </picture>
 
-              <div className="hero__stat-card hero__stat-card-2">
-                <div className="hero__stat-icon">⭐</div>
-                <div>
-                  <div className="hero__stat-value">4.9/5</div>
-                  <div className="hero__stat-label">Patient Rating</div>
-                </div>
-              </div>
+  <div className="hero__image-overlay" />
 
-              <div className="hero__stat-card hero__stat-card-3">
-                <div className="hero__stat-icon">🏥</div>
-                <div>
-                  <div className="hero__stat-value">15+ Yrs</div>
-                  <div className="hero__stat-label">Excellence</div>
-                </div>
-              </div>
-            </div>
-          </div>
+  <div className="hero__image-label">
+    <span className="hero__image-label-dot" />
+    <div>
+      <strong>Premium Dental Care</strong>
+      <small>Modern • Gentle • Trusted</small>
+    </div>
+  </div>
+</div>
+
+      {/* Floating stat cards */}
+      <div className="hero__stat-card hero__stat-card-1">
+        <div className="hero__stat-icon">😁</div>
+        <div>
+          <div className="hero__stat-value">5000+</div>
+          <div className="hero__stat-label">Happy Smiles</div>
         </div>
+      </div>
+
+      <div className="hero__stat-card hero__stat-card-2">
+        <div className="hero__stat-icon">⭐</div>
+        <div>
+          <div className="hero__stat-value">4.9/5</div>
+          <div className="hero__stat-label">Patient Rating</div>
+        </div>
+      </div>
+
+      <div className="hero__stat-card hero__stat-card-3">
+        <div className="hero__stat-icon">🏥</div>
+        <div>
+          <div className="hero__stat-value">15+ Yrs</div>
+          <div className="hero__stat-label">Excellence</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       </div>
 
       {/* Scroll indicator */}

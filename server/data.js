@@ -3,12 +3,12 @@
 const clinicInfo = {
   name: 'Zaid Dental Clinic',
   tagline: 'Crafting Confident Smiles',
-  address: 'Yashmeen Plaza, Roshan Gate Rd, Siddheshwar Colony, Kaiser Colony, Aurangabad - 431001, Maharashtra, India',
+  address: 'Yashmeen Plaza, Roshan Gate Rd, Siddheshwar Colony, Kaiser Colony,CSN (Aurangabad) - 431001, Maharashtra, India',
   phone: '+91 98765 43210',
   email: 'hello@zaiddentalclinic.com',
   hours: {
-    weekdays: '9:00 AM - 8:00 PM',
-    saturday: '9:00 AM - 6:00 PM',
+    morning: '11:00 AM - 3:00 PM',
+    evening: '6:30 PM - 10:30 PM',
     sunday: 'By Appointment Only'
   },
   stats: [
@@ -18,61 +18,46 @@ const clinicInfo = {
     { value: '12', label: 'Expert Specialists' }
   ],
   doctors: [
-    { name: 'Dr. Mohammad Ziauddin', specialty: 'Chief Dental Surgeon', initials: 'MZ', photo: 'dr-mohammad-ziauddin.jpeg' },
-    { name: 'Dr. Seema Yasmeen', specialty: 'General Dentist', initials: 'SY' },
-    { name: 'Dr. Syeda Samiya', specialty: 'General Dentist', initials: 'SS', photo: 'dr-syeda-samiya.jpg' }
+    {
+      name: 'Dr. Mohammad Ziauddin',
+      qualification: 'B.D.S.',
+      role: 'Dental Surgeon',
+      regd: 'Regd. No. A-9312',
+      experience: '15+ Years Experience',
+      initials: 'MZ',
+      photo: 'primedoc.jpeg',
+      prime: true
+    },
+    { name: 'Dr. Seema Yasmeen', role: 'General Dentist', initials: 'SY',qualification: 'B.D.S.'},
+    { name: 'Dr. Syeda Samiya', role: 'General Dentist', initials: 'SS' }
   ]
 };
 
-const services = [
-  {
-    id: 1,
-    icon: 'tooth',
-    title: 'General Dentistry',
-    desc: 'Comprehensive oral health care including cleanings, fillings, and preventive treatments for the whole family.',
-    color: '#2DD4BF'
-  },
-  {
-    id: 2,
-    icon: 'sparkle',
-    title: 'Teeth Whitening',
-    desc: 'Professional-grade whitening treatments that deliver dramatic results safely and comfortably.',
-    color: '#818CF8'
-  },
-  {
-    id: 3,
-    icon: 'shield',
-    title: 'Dental Implants',
-    desc: 'Permanent tooth replacement solutions that look, feel, and function like your natural teeth.',
-    color: '#FB7185'
-  },
-  {
-    id: 4,
-    icon: 'align',
-    title: 'Orthodontics',
-    desc: 'Clear aligners and braces to straighten teeth and perfect your bite at any age.',
-    color: '#FBBF24'
-  },
-  {
-    id: 5,
-    icon: 'smile',
-    title: 'Smile Makeover',
-    desc: 'Complete aesthetic transformations combining veneers, contouring, and bonding for your dream smile.',
-    color: '#34D399'
-  },
-  {
-    id: 6,
-    icon: 'heart',
-    title: 'Pediatric Dentistry',
-    desc: 'Gentle, child-friendly dental care in a warm and welcoming environment kids actually enjoy.',
-    color: '#F472B6'
-  }
+// Facilities & treatments offered at the clinic (from the clinic's printed facility list).
+const facilities = [
+  { id: 1, title: 'X-Ray Unit', desc: 'In-house digital X-ray for fast, accurate diagnosis.', color: '#2DD4BF' },
+  { id: 2, title: 'Root Canal Treatment', desc: 'Gentle root canal therapy that saves damaged teeth.', color: '#818CF8' },
+  { id: 3, title: 'Cosmetic Fillings', desc: 'Tooth-coloured composite fillings that blend invisibly.', color: '#FB7185' },
+  { id: 4, title: 'Dental Surgery', desc: 'Safe, expert surgical procedures under strict sterile conditions.', color: '#FBBF24' },
+  { id: 5, title: 'Ultra Sonic Scaling', desc: 'Deep cleaning that lifts plaque and tartar with ultrasonic precision.', color: '#34D399' },
+  { id: 6, title: 'Fixed Metal Bridges', desc: 'Strong, durable metal bridges that restore missing teeth.', color: '#F472B6' },
+  { id: 7, title: 'Fixed Ceramic Bridges', desc: 'Natural-looking ceramic bridges matched to your smile.', color: '#2DD4BF' },
+  { id: 8, title: 'Imported Complete Dentures', desc: 'Premium imported full dentures built for comfort and fit.', color: '#818CF8' },
+  { id: 9, title: 'Removable Partial Dentures', desc: 'Comfortable, removable partials to replace missing teeth.', color: '#FB7185' },
+  { id: 10, title: 'Gum Surgery', desc: 'Advanced gum treatment for healthier teeth and tissue.', color: '#FBBF24' },
+  { id: 11, title: 'Fractures', desc: 'Complete care for cracked, chipped and fractured teeth.', color: '#34D399' },
+  { id: 12, title: 'Orthodontic Treatment', desc: 'Braces and alignment care to straighten teeth at any age.', color: '#F472B6' },
+  { id: 13, title: 'Silver Filling', desc: 'Long-lasting amalgam fillings for strong, reliable repairs.', color: '#2DD4BF' },
+  { id: 14, title: 'Impactions', desc: 'Safe removal of impacted teeth, including wisdom teeth.', color: '#818CF8' }
 ];
+
+// Backwards-compatible export name — /api/services now serves the facilities list.
+const services = facilities;
 
 const testimonials = [
   {
     id: 1,
-    name: 'Altamash Shaikh',
+    name: 'Noor Khan',
     rating: 5,
     text: 'The team at Zaid Dental transformed my smile completely. The veneers look absolutely natural. Best investment I\'ve ever made!',
     treatment: 'Smile Makeover',
@@ -81,7 +66,7 @@ const testimonials = [
   },
   {
     id: 2,
-    name: 'Rahul Gupta',
+    name: 'Abdul Rehman',
     rating: 5,
     text: 'I was terrified of dentists but the staff made me feel completely at ease. My implant procedure was painless and the results are phenomenal.',
     treatment: 'Dental Implant',
@@ -90,11 +75,12 @@ const testimonials = [
   },
   {
     id: 3,
-    name: 'Anjali Verma',
+    name: 'Zainab Ali',
     rating: 5,
     text: 'Took my kids here and they loved it! The pediatric team is so patient and fun. My children actually look forward to their check-ups now.',
     treatment: 'Pediatric Care',
-    avatar: 'AV'
+    avatar: 'AV',
+    photo: 'patent3.jpeg'
   }
 ];
 

@@ -3,7 +3,6 @@ import './Gallery.css';
 
 const galleryItems = [
   { src: '/images/clinic-interior.png', title: 'Our Clinic', desc: 'A warm, welcoming space designed around your comfort.' },
-  { src: '/images/denatlmachine.jpeg', title: 'Modern Equipment', desc: 'Advanced technology for precise, pain-free treatment.' },
   { src: '/images/allstaff.jpeg', title: 'Our Team', desc: 'Specialists who treat every patient like family.' }
 ];
 
@@ -27,7 +26,7 @@ const Gallery = () => {
           <div className="section-tag">Inside Our Clinic</div>
           <h2 className="section-title">Step Into<br /><em>Zaid Dental</em></h2>
           <p className="section-desc">
-            A glimpse of our clinic, our team, and the technology that powers your smile.
+            A glimpse of our clinic and the friendly faces behind your smile.
           </p>
         </div>
 
@@ -48,7 +47,7 @@ const Gallery = () => {
 
           <div
             className={`gallery__tile gallery__tile--cta ${visible ? 'gallery__tile--visible' : ''}`}
-            style={{ transitionDelay: '0.36s' }}
+            style={{ transitionDelay: '0.24s' }}
           >
             <div className="gallery__cta">
               <div className="gallery__cta-icon">😁</div>

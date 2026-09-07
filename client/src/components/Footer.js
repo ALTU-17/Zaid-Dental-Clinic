@@ -29,12 +29,19 @@ const MailIcon = () => (
 const Footer = ({ clinicData }) => {
   const year = new Date().getFullYear();
 
-  const serviceLinks = ['General Dentistry', 'Teeth Whitening', 'Dental Implants', 'Orthodontics', 'Smile Makeover', 'Pediatric Care'];
+  const serviceLinks = [
+    'Root Canal Treatment',
+    'X-Ray Unit',
+    'Cosmetic Fillings',
+    'Dental Surgery',
+    'Ultra Sonic Scaling',
+    'Orthodontic Treatment'
+  ];
 
   const clinicLinks = [
     { label: 'About Us', target: 'about' },
     { label: 'Our Team', target: 'doctors' },
-    { label: 'Technology', target: 'gallery' },
+    { label: 'Technology', target: 'equipment' },
     { label: 'Testimonials', target: 'testimonials' }
   ];
 
@@ -58,7 +65,7 @@ const Footer = ({ clinicData }) => {
           </div>
 
           <div className="footer__col">
-            <div className="footer__col-title">Services</div>
+            <div className="footer__col-title">Facilities</div>
             {serviceLinks.map(s => (
               <button key={s} className="footer__link" onClick={() => scrollTo('services')}>{s}</button>
             ))}
@@ -83,8 +90,9 @@ const Footer = ({ clinicData }) => {
               <span>✉️</span> {clinicData?.email || 'hello@zaiddentalclinic.com'}
             </div>
             <div className="footer__hours">
-              <div className="footer__hours-row"><span>Mon–Fri</span><span>9AM–8PM</span></div>
-              <div className="footer__hours-row"><span>Saturday</span><span>9AM–6PM</span></div>
+              <div className="footer__hours-label">Timings</div>
+              <div className="footer__hours-row"><span>Morning</span><span>{clinicData?.hours?.morning || '11AM–3PM'}</span></div>
+              <div className="footer__hours-row"><span>Evening</span><span>{clinicData?.hours?.evening || '6:30PM–10:30PM'}</span></div>
               <div className="footer__hours-row"><span>Sunday</span><span>By Appt</span></div>
             </div>
           </div>

@@ -37,12 +37,64 @@
   height: 36px;
 }
 
+.navbar__logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  line-height: 1.2;
+}
+
 .navbar__brand {
   font-family: 'Playfair Display', serif;
   font-size: 18px;
   font-weight: 600;
   color: #F8FAFC;
   letter-spacing: 0.01em;
+}
+
+/* Open / closed status below the clinic name, single row */
+.navbar__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #94A3B8;
+  white-space: nowrap;
+}
+
+.navbar__status-dot {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #2DD4BF;
+  box-shadow: 0 0 8px rgba(45, 212, 191, 0.8);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+.navbar__status--closed .navbar__status-dot {
+  background: #FB7185;
+  box-shadow: 0 0 8px rgba(251, 113, 133, 0.6);
+  animation: none;
+}
+
+.navbar__status-label {
+  color: #F8FAFC;
+  font-weight: 700;
+}
+
+.navbar__status-sep {
+  color: rgba(45, 212, 191, 0.6);
+}
+
+.navbar__status-sub {
+  color: #94A3B8;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.8); }
 }
 
 .navbar__links {

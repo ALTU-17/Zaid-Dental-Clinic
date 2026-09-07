@@ -8,6 +8,7 @@ import About from './components/About';
 import Doctors from './components/Doctors';
 import Testimonials from './components/Testimonials';
 import Gallery from './components/Gallery';
+import Equipment from './components/Equipment';
 import Booking from './components/Booking';
 import Footer from './components/Footer';
 
@@ -53,8 +54,10 @@ function App() {
         <Services services={services} />
         <About />
         <Doctors clinicData={clinicData} />
+        <Equipment />
         <Testimonials testimonials={testimonials} />
         <Gallery />
+        
         <Booking clinicData={clinicData} />
       </main>
       <Footer clinicData={clinicData} />

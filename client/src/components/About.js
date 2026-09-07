@@ -58,7 +58,7 @@ const About = () => {
 
             <div className="about__center">
               <img
-                src="/images/dr-mohammad-ziauddin.jpeg"
+                src="/images/clinic-interior.png"
                 alt="Zaid Dental Clinic reception area"
                 className="about__photo"
               />

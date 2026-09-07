@@ -66,7 +66,7 @@ const Hero = ({ clinicData }) => {
               </svg>
             </button>
             <button className="hero__btn hero__btn--ghost" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>
-              Explore Services
+              Explore Treatments
             </button>
           </div>
 

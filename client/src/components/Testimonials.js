@@ -2,12 +2,27 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Testimonials.css';
 
 const defaultTestimonials = [
-  { id: 1, name: 'Altamash Shaikh', rating: 5, text: 'The team at Zaid Dental transformed my smile completely. The veneers look absolutely natural. Best investment I\'ve ever made!', treatment: 'Smile Makeover', avatar: 'PS', photo: 'patent1.jpeg' },
-  { id: 2, name: 'Rahul Gupta', rating: 5, text: 'I was terrified of dentists but the staff made me feel completely at ease. My implant procedure was painless and the results are phenomenal.', treatment: 'Dental Implant', avatar: 'RG', photo: 'patent2.jpeg' },
-  { id: 3, name: 'Anjali Verma', rating: 5, text: 'Took my kids here and they loved it! The pediatric team is so patient and fun. My children actually look forward to their check-ups now.', treatment: 'Pediatric Care', avatar: 'AV' }
+  { id: 1, name: 'Noor Khan', rating: 5, text: 'The team at Zaid Dental transformed my smile completely. The veneers look absolutely natural. Best investment I\'ve ever made!', treatment: 'Smile Makeover', avatar: 'PS', photo: 'patent1.jpeg' },
+  { id: 2, name: 'Abdul Rehman', rating: 5, text: 'I was terrified of dentists but the staff made me feel completely at ease. My implant procedure was painless and the results are phenomenal.', treatment: 'Dental Implant', avatar: 'RG', photo: 'patent2.jpeg' },
+  { id: 3, name: 'Zainab Ali', rating: 5, text: 'Took my kids here and they loved it! The pediatric team is so patient and fun. My children actually look forward to their check-ups now.', treatment: 'Pediatric Care', avatar: 'AV' }
 ];
 
 const avatarColors = ['#2DD4BF', '#818CF8', '#FB7185', '#FBBF24'];
+
+const Avatar = ({ t, color }) => {
+  const [failed, setFailed] = useState(false);
+  if (t.photo && !failed) {
+    return (
+      <img
+        src={`/images/${t.photo}`}
+        alt={t.name}
+        className="testimonials__avatar-img"
+        onError={() => setFailed(true)}
+      />
+    );
+  }
+  return t.avatar;
+};
 
 const Testimonials = ({ testimonials }) => {
   const data = testimonials?.length ? testimonials : defaultTestimonials;
@@ -53,11 +68,7 @@ const Testimonials = ({ testimonials }) => {
                 <p className="testimonials__text">"{t.text}"</p>
                 <div className="testimonials__author">
                   <div className="testimonials__avatar" style={{ background: avatarColors[i % avatarColors.length] }}>
-                    {t.photo ? (
-                      <img src={`/images/${t.photo}`} alt={t.name} className="testimonials__avatar-img" />
-                    ) : (
-                      t.avatar
-                    )}
+                    <Avatar t={t} color={avatarColors[i % avatarColors.length]} />
                   </div>
                   <div>
                     <div className="testimonials__name">{t.name}</div>

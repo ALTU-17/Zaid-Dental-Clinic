@@ -87,6 +87,21 @@
   line-height: 1.5;
 }
 
+.booking__hours {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #CBD5E1;
+  line-height: 1.5;
+}
+
+.booking__hours-sep {
+  color: #2DD4BF;
+  opacity: 0.5;
+}
+
 /* Form */
 .booking__form-card {
   background: rgba(30, 42, 58, 0.8);

@@ -17,18 +17,18 @@
 
 .doctors__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1.35fr 1fr;
   gap: 20px;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
+  align-items: stretch;
 }
 
+/* Shared card shell */
 .doctors__card {
   background: rgba(30, 42, 58, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 20px;
-  padding: 40px 28px 32px;
-  text-align: center;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.35s ease, box-shadow 0.35s ease;
@@ -41,19 +41,142 @@
 
 .doctors__card:hover {
   border-color: rgba(45, 212, 191, 0.25);
-  transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-.doctors__avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin: 0 auto 24px;
+/* ===== PRIME (lead) doctor card — spans both rows ===== */
+.doctors__card--prime {
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 32px;
+  background: linear-gradient(160deg, rgba(45, 212, 191, 0.09), rgba(30, 42, 58, 0.85) 45%);
+  border: 1px solid rgba(45, 212, 191, 0.28);
+  box-shadow: 0 0 60px rgba(45, 212, 191, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.doctors__card--prime:hover {
+  border-color: rgba(45, 212, 191, 0.45);
+  box-shadow: 0 0 70px rgba(45, 212, 191, 0.12), 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.doctors__prime-photo {
+  width: min(300px, 78%);
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 26px;
+  border: 2px solid rgba(45, 212, 191, 0.35);
+  box-shadow: 0 0 40px rgba(45, 212, 191, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 36px;
+  font-size: 72px;
+  font-weight: 700;
+  color: #0A0F1E;
+}
+
+.doctors__prime-tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #0A0F1E;
+  background: #2DD4BF;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+
+.doctors__prime-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 700;
+  color: #F8FAFC;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.doctors__prime-quals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.doctors__chip {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2DD4BF;
+  background: rgba(45, 212, 191, 0.08);
+  border: 1px solid rgba(45, 212, 191, 0.25);
+  padding: 6px 14px;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+}
+
+.doctors__prime-regd {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #94A3B8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.doctors__prime-exp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #FBBF24;
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  padding: 7px 14px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+}
+
+.doctors__prime-desc {
+  font-size: 14px;
+  color: #94A3B8;
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+/* ===== Small doctor cards ===== */
+.doctors__card--small {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 36px 28px 32px;
+}
+
+.doctors__card--small:hover {
+  transform: translateY(-4px);
+}
+
+.doctors__card--small.doctors__card--visible:hover {
+  transform: translateY(-4px);
+}
+
+.doctors__avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
   font-weight: 700;
   color: #0A0F1E;
   border: 3px solid rgba(45, 212, 191, 0.3);
@@ -65,6 +188,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
 }
 
 .doctors__name {
@@ -84,10 +208,13 @@
   font-family: 'DM Mono', monospace;
 }
 
-@media (max-width: 900px) {
-  .doctors__grid { grid-template-columns: repeat(2, 1fr); }
-}
+@media (max-width: 960px) {
+  .doctors__grid {
+    grid-template-columns: 1fr;
+    max-width: 640px;
+  }
 
-@media (max-width: 540px) {
-  .doctors__grid { grid-template-columns: 1fr; }
+  .doctors__card--prime {
+    grid-row: auto;
+  }
 }

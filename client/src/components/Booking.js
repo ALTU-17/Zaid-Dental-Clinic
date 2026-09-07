@@ -55,9 +55,11 @@ const Booking = ({ clinicData }) => {
             <div className="booking__info-item">
               <div className="booking__info-icon">🕐</div>
               <div>
+                <div className="booking__info-label">Timings</div>
                 <div className="booking__info-label">Hours</div>
-                <div className="booking__info-value">Mon–Fri: {info?.hours?.weekdays || '9 AM – 8 PM'}</div>
-                <div className="booking__info-value">Sat: {info?.hours?.saturday || '9 AM – 6 PM'}</div>
+                <div className="booking__info-value">Morning: {info?.hours?.morning || '11:00 AM – 3:00 PM'}</div>
+                <div className="booking__info-value">Evening: {info?.hours?.evening || '6:30 PM – 10:30 PM'}</div>
+                <div className="booking__info-value">Sunday: {info?.hours?.sunday || 'By Appointment'}</div>
               </div>
             </div>
             <div className="booking__info-item">
@@ -107,12 +109,20 @@ const Booking = ({ clinicData }) => {
                   <label>Service Interested In</label>
                   <select name="service" value={form.service} onChange={handleChange} required>
                     <option value="">Select a service…</option>
-                    <option>General Dentistry</option>
-                    <option>Teeth Whitening</option>
-                    <option>Dental Implants</option>
-                    <option>Orthodontics</option>
-                    <option>Smile Makeover</option>
-                    <option>Pediatric Dentistry</option>
+                    <option>Root Canal Treatment</option>
+                    <option>X-Ray Unit</option>
+                    <option>Cosmetic Fillings</option>
+                    <option>Dental Surgery</option>
+                    <option>Ultra Sonic Scaling</option>
+                    <option>Fixed Metal Bridges</option>
+                    <option>Fixed Ceramic Bridges</option>
+                    <option>Imported Complete Dentures</option>
+                    <option>Removable Partial Dentures</option>
+                    <option>Gum Surgery</option>
+                    <option>Fractures</option>
+                    <option>Orthodontic Treatment</option>
+                    <option>Silver Filling</option>
+                    <option>Impactions</option>
                     <option>Other</option>
                   </select>
                 </div>

@@ -5,7 +5,7 @@ const clinicInfo = {
   tagline: 'Crafting Confident Smiles',
   address: 'Yashmeen Plaza, Roshan Gate Rd, Siddheshwar Colony, Kaiser Colony,CSN (Aurangabad) - 431001, Maharashtra, India',
   phone: '+91 98765 43210',
-  email: 'hello@zaiddentalclinic.com',
+  email: 'Drziamd10@gmail.com',
   hours: {
     morning: '11:00 AM - 3:00 PM',
     evening: '6:30 PM - 10:30 PM',
@@ -15,22 +15,40 @@ const clinicInfo = {
     { value: '5000+', label: 'Happy Patients' },
     { value: '15+', label: 'Years of Excellence' },
     { value: '98%', label: 'Satisfaction Rate' },
-    { value: '12', label: 'Expert Specialists' }
+    { value: '3', label: 'Expert Specialists' }
   ],
   doctors: [
-    {
-      name: 'Dr. Mohammad Ziauddin',
-      qualification: 'B.D.S.',
-      role: 'Dental Surgeon',
-      regd: 'Regd. No. A-9312',
-      experience: '15+ Years Experience',
-      initials: 'MZ',
-      photo: 'primedoc.jpeg',
-      prime: true
-    },
-    { name: 'Dr. Seema Yasmeen', role: 'General Dentist', initials: 'SY',qualification: 'B.D.S.'},
-    { name: 'Dr. Syeda Samiya', role: 'General Dentist', initials: 'SS' }
-  ]
+      {
+    name: 'Dr. Mohammad Ziauddin',
+    sname: 'Dr. Mohammad Ziauddin',
+    qualification: 'B.D.S.',
+    role: 'Dental Surgeon',
+    regd: 'Regd. No. A-9312',
+    experience: '15+ Years Experience',
+    initials: 'MZ',
+    photo: 'primedoc.jpeg',
+    prime: true
+  },
+   {
+    name: 'Dr. Syeda Samiya Mir Hidayat Ali',
+    sname: 'Dr. Syeda Samiya',
+    qualification: 'B.D.S.',
+    role: 'General Dentist',
+    regd: 'Regd. No. A-52000',
+    experience: '5+ Years Experience',
+    photo: 'drsamiya.png',
+    initials: 'SS'
+  },
+  {
+     name: 'Dr. Seema Yasmeen',
+     sname: 'Dr. Seema Yasmeen',
+      role: 'General Dentist',
+       qualification: 'B.D.S.',
+        initials: 'SY',
+         experience: '10+ Years Experience'
+         },
+ 
+]
 };
 
 // Facilities & treatments offered at the clinic (from the clinic's printed facility list).

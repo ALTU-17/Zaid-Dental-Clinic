@@ -12,8 +12,23 @@ const defaultDoctors = [
     photo: 'primedoc.jpeg',
     prime: true
   },
-  { name: 'Dr. Seema Yasmeen', role: 'General Dentist', qualification: 'B.D.S.', initials: 'SY' },
-  { name: 'Dr. Syeda Samiya', role: 'General Dentist', initials: 'SS' }
+   {
+    name: 'Dr. Syeda Samiya Mir Hidayat Ali',
+    qualification: 'B.D.S.',
+    role: 'General Dentist',
+    regd: 'Regd. No. A-52000',
+    experience: '5+ Years Experience',
+    photo: 'drsamiya.png',
+    initials: 'SS'
+  },
+  {
+     name: 'Dr. Seema Yasmeen',
+      role: 'General Dentist',
+       qualification: 'B.D.S.',
+        initials: 'SY',
+         experience: '10+ Years Experience'
+         },
+ 
 ];
 
 const avatarColors = ['#2DD4BF', '#818CF8', '#FB7185'];
@@ -106,6 +121,17 @@ const Doctors = ({ clinicData }) => {
                 {(doc.role || doc.qualification) && (
                   <p className="doctors__specialty">{[doc.role, doc.qualification].filter(Boolean).join(' · ')}</p>
                 )}
+                {doc.regd && <p className="doctors__small-regd">{doc.regd}</p>}
+                {doc.experience && (
+                  <p className="doctors__small-exp">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 6v6l4 2" />
+                    </svg>
+                    {doc.experience}
+                  </p>
+                )}
+                {doc.desc && <p className="doctors__small-desc">{doc.desc}</p>}
               </article>
             )
           )}

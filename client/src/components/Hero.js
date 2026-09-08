@@ -43,7 +43,7 @@ const Hero = ({ clinicData }) => {
             {(clinicData?.doctors || defaultDoctors).map(doc => (
               <div key={doc.name} className="hero__badge">
                 <span className="hero__badge-dot" />
-                {doc.name}
+                {doc.sname}
               </div>
             ))}
           </div>

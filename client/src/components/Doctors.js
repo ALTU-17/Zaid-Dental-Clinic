@@ -18,7 +18,7 @@ const defaultDoctors = [
     role: 'General Dentist',
     regd: 'Regd. No. A-52000',
     experience: '5+ Years Experience',
-    photo: 'drsamiya.png',
+    photo: 'mask.jpg',
     initials: 'SS'
   },
   {

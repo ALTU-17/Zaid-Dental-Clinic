@@ -36,7 +36,7 @@ const clinicInfo = {
     role: 'General Dentist',
     regd: 'Regd. No. A-52000',
     experience: '5+ Years Experience',
-    photo: 'drsamiya.png',
+    photo: 'mask.jpg',
     initials: 'SS'
   },
   {
@@ -52,21 +52,50 @@ const clinicInfo = {
 };
 
 // Facilities & treatments offered at the clinic (from the clinic's printed facility list).
+// Each entry carries an internet photo URL (Wikimedia Commons) + an info blurb shown in the detail modal.
 const facilities = [
-  { id: 1, title: 'X-Ray Unit', desc: 'In-house digital X-ray for fast, accurate diagnosis.', color: '#2DD4BF' },
-  { id: 2, title: 'Root Canal Treatment', desc: 'Gentle root canal therapy that saves damaged teeth.', color: '#818CF8' },
-  { id: 3, title: 'Cosmetic Fillings', desc: 'Tooth-coloured composite fillings that blend invisibly.', color: '#FB7185' },
-  { id: 4, title: 'Dental Surgery', desc: 'Safe, expert surgical procedures under strict sterile conditions.', color: '#FBBF24' },
-  { id: 5, title: 'Ultra Sonic Scaling', desc: 'Deep cleaning that lifts plaque and tartar with ultrasonic precision.', color: '#34D399' },
-  { id: 6, title: 'Fixed Metal Bridges', desc: 'Strong, durable metal bridges that restore missing teeth.', color: '#F472B6' },
-  { id: 7, title: 'Fixed Ceramic Bridges', desc: 'Natural-looking ceramic bridges matched to your smile.', color: '#2DD4BF' },
-  { id: 8, title: 'Imported Complete Dentures', desc: 'Premium imported full dentures built for comfort and fit.', color: '#818CF8' },
-  { id: 9, title: 'Removable Partial Dentures', desc: 'Comfortable, removable partials to replace missing teeth.', color: '#FB7185' },
-  { id: 10, title: 'Gum Surgery', desc: 'Advanced gum treatment for healthier teeth and tissue.', color: '#FBBF24' },
-  { id: 11, title: 'Fractures', desc: 'Complete care for cracked, chipped and fractured teeth.', color: '#34D399' },
-  { id: 12, title: 'Orthodontic Treatment', desc: 'Braces and alignment care to straighten teeth at any age.', color: '#F472B6' },
-  { id: 13, title: 'Silver Filling', desc: 'Long-lasting amalgam fillings for strong, reliable repairs.', color: '#2DD4BF' },
-  { id: 14, title: 'Impactions', desc: 'Safe removal of impacted teeth, including wisdom teeth.', color: '#818CF8' }
+  { id: 1, title: 'X-Ray Unit', desc: 'In-house digital X-ray for fast, accurate diagnosis.', color: '#2DD4BF',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Stafne_defect_panorex.jpg/960px-Stafne_defect_panorex.jpg',
+    info: 'Digital X-rays give our dentists a precise view of your teeth, roots and jawbone — in seconds and with far less radiation than traditional film. They help detect cavities, infections, impacted teeth and bone loss early, so treatment starts before problems grow.' },
+  { id: 2, title: 'Root Canal Treatment', desc: 'Gentle root canal therapy that saves damaged teeth.', color: '#818CF8',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Dental_root_canal_treatment_process.jpg/960px-Dental_root_canal_treatment_process.jpg',
+    info: 'Root canal therapy removes infected pulp from inside a damaged tooth, cleans the canals and seals them to stop the infection returning. It relieves pain and saves the natural tooth — often in just one or two comfortable visits.' },
+  { id: 3, title: 'Cosmetic Fillings', desc: 'Tooth-coloured composite fillings that blend invisibly.', color: '#FB7185',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Dental_Restoration.jpg/960px-Dental_Restoration.jpg',
+    info: 'Tooth-coloured composite fillings repair cavities, chips and worn edges with material that matches your natural tooth shade. They blend invisibly with your smile and can often be completed in a single sitting.' },
+  { id: 4, title: 'Dental Surgery', desc: 'Safe, expert surgical procedures under strict sterile conditions.', color: '#FBBF24',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Oral_surgery_150408-F-DD059-105.jpg/960px-Oral_surgery_150408-F-DD059-105.jpg',
+    info: 'From simple extractions to complex surgical procedures, our dental surgery is performed under strict sterile conditions with modern anaesthesia. You stay comfortable throughout, and we guide your recovery step by step.' },
+  { id: 5, title: 'Ultra Sonic Scaling', desc: 'Deep cleaning that lifts plaque and tartar with ultrasonic precision.', color: '#34D399',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Dentist_Examining_Patient%E2%80%99s_Teeth_with_Dental_Mirror.jpg/960px-Dentist_Examining_Patient%E2%80%99s_Teeth_with_Dental_Mirror.jpg',
+    info: 'Ultrasonic scaling uses high-frequency vibrations to gently loosen plaque, tartar and stains above and below the gumline. It is a fast, comfortable deep clean that prevents gum disease and keeps your breath fresh.' },
+  { id: 6, title: 'Fixed Metal Bridges', desc: 'Strong, durable metal bridges that restore missing teeth.', color: '#F472B6',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Teeth_prepared_for_a_bridge_restoration.jpg/960px-Teeth_prepared_for_a_bridge_restoration.jpg',
+    info: 'A fixed metal bridge replaces one or more missing teeth by anchoring a strong metal framework to the neighbouring teeth. It restores your bite, stops teeth from shifting, and is built to last for years.' },
+  { id: 7, title: 'Fixed Ceramic Bridges', desc: 'Natural-looking ceramic bridges matched to your smile.', color: '#2DD4BF',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Feldspathic_VM9_Porcelain_Crowns.jpg/960px-Feldspathic_VM9_Porcelain_Crowns.jpg',
+    info: 'Ceramic bridges restore missing teeth with natural, tooth-coloured material matched to your smile. The porcelain finish looks lifelike while the bridge stays firmly fixed in place — no removal needed.' },
+  { id: 8, title: 'Imported Complete Dentures', desc: 'Premium imported full dentures built for comfort and fit.', color: '#818CF8',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Denture_plate.jpg/960px-Denture_plate.jpg',
+    info: 'Our imported complete dentures replace all missing teeth in an arch with premium materials chosen for comfort, fit and a natural look. Each set is custom-made so you can eat, speak and smile with confidence.' },
+  { id: 9, title: 'Removable Partial Dentures', desc: 'Comfortable, removable partials to replace missing teeth.', color: '#FB7185',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Removable_partial_golden_denture_%28cropped%29.jpg/960px-Removable_partial_golden_denture_%28cropped%29.jpg',
+    info: 'Partial dentures fill the gaps left by missing teeth with a lightweight, removable appliance that clips onto your remaining teeth. They improve chewing, speech and appearance, and are easy to keep clean.' },
+  { id: 10, title: 'Gum Surgery', desc: 'Advanced gum treatment for healthier teeth and tissue.', color: '#FBBF24',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/UCLA_Periodontics_Graduate_Clinic.jpg/960px-UCLA_Periodontics_Graduate_Clinic.jpg',
+    info: 'Gum (periodontal) surgery treats advanced gum disease, receding gums and infected tissue that scaling alone cannot reach. It restores healthy, firm gums — the foundation your teeth stand on.' },
+  { id: 11, title: 'Fractures', desc: 'Complete care for cracked, chipped and fractured teeth.', color: '#34D399',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Cracked_tooth.jpg/960px-Cracked_tooth.jpg',
+    info: 'Cracked, chipped or fractured teeth are assessed and repaired to protect the nerve and prevent further damage. Depending on severity, treatment ranges from bonding and crowns to full restoration.' },
+  { id: 12, title: 'Orthodontic Treatment', desc: 'Braces and alignment care to straighten teeth at any age.', color: '#F472B6',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Before_and_After_Photos_following_Orthodontic_Treatment_-_Teeth_Braces.jpg/960px-Before_and_After_Photos_following_Orthodontic_Treatment_-_Teeth_Braces.jpg',
+    info: 'Braces and alignment treatment gradually straighten crooked or crowded teeth and correct your bite at any age. The result is a healthier, more confident smile that is easier to clean and care for.' },
+  { id: 13, title: 'Silver Filling', desc: 'Long-lasting amalgam fillings for strong, reliable repairs.', color: '#2DD4BF',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Filling_amalgam.jpg/960px-Filling_amalgam.jpg',
+    info: 'Amalgam (silver) fillings are a time-tested, highly durable choice for back teeth that bear heavy chewing pressure. They are strong, long-lasting and a cost-effective way to repair decay.' },
+  { id: 14, title: 'Impactions', desc: 'Safe removal of impacted teeth, including wisdom teeth.', color: '#818CF8',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Impacted_wisdom_tooth.jpg/960px-Impacted_wisdom_tooth.jpg',
+    info: 'An impacted tooth — often a wisdom tooth — is one that cannot fully emerge. We assess it with X-rays and, when needed, remove it safely to prevent pain, infection and damage to neighbouring teeth.' }
 ];
 
 // Backwards-compatible export name — /api/services now serves the facilities list.

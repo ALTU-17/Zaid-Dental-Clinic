@@ -67,14 +67,10 @@
   transition: all 0.35s ease;
   position: relative;
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(30px);
 }
 
 .service-card--visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease, background 0.35s ease, border-color 0.35s ease;
+  /* Cards are always visible; this class is kept for compatibility. */
 }
 
 .service-card::before {
@@ -146,20 +142,14 @@
   .services__grid { grid-template-columns: 1fr; }
 }
 
-/* Cards are now tappable buttons */
+/* Cards are now tappable buttons.
+   NOTE: keep opacity/transform out of this block — the initial hidden
+   state is set by the rule above and .service-card--visible must win the
+   cascade, otherwise cards stay invisible (still clickable). */
 .service-card {
   cursor: pointer;
   text-align: left;
   font-family: inherit;
-  background: rgba(30, 42, 58, 0.6);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 20px;
-  padding: 32px 28px;
-  transition: all 0.35s ease;
-  position: relative;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(30px);
   width: 100%;
   color: inherit;
 }

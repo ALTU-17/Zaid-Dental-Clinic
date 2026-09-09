@@ -240,6 +240,40 @@
   max-width: 220px;
 }
 
+/* ===== Doctor contact (email / phone) ===== */
+.doctors__contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+}
+
+.doctors__contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #94A3B8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  word-break: break-all;
+  max-width: 100%;
+}
+
+.doctors__contact-item svg {
+  color: #2DD4BF;
+  flex-shrink: 0;
+}
+
+.doctors__contact-item:hover {
+  color: #2DD4BF;
+}
+
 @media (max-width: 960px) {
   .doctors__grid {
     grid-template-columns: 1fr;

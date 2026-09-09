@@ -123,6 +123,13 @@ const Booking = ({ clinicData }) => {
                     <option>Orthodontic Treatment</option>
                     <option>Silver Filling</option>
                     <option>Impactions</option>
+                    <option>Portable X-Ray Unit</option>
+                    <option>Fixed Zirconia Bridges</option>
+                    <option>Painless Extractions</option>
+                    <option>Implants</option>
+                    <option>Full Mouth Rehabilitation</option>
+                    <option>Ultrasonic Scaling and Polishing</option>
+                    <option>Community Dentistry</option>
                     <option>Other</option>
                   </select>
                 </div>

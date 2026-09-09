@@ -37,7 +37,9 @@ const clinicInfo = {
     regd: 'Regd. No. A-52000',
     experience: '5+ Years Experience',
     photo: 'mask.jpg',
-    initials: 'SS'
+    initials: 'SS',
+    email: 'syedasamiya7@gmail.com',
+    phone: '+91 92847 86071'
   },
   {
      name: 'Dr. Seema Yasmeen',
@@ -95,7 +97,28 @@ const facilities = [
     info: 'Amalgam (silver) fillings are a time-tested, highly durable choice for back teeth that bear heavy chewing pressure. They are strong, long-lasting and a cost-effective way to repair decay.' },
   { id: 14, title: 'Impactions', desc: 'Safe removal of impacted teeth, including wisdom teeth.', color: '#818CF8',
     image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Impacted_wisdom_tooth.jpg/960px-Impacted_wisdom_tooth.jpg',
-    info: 'An impacted tooth — often a wisdom tooth — is one that cannot fully emerge. We assess it with X-rays and, when needed, remove it safely to prevent pain, infection and damage to neighbouring teeth.' }
+    info: 'An impacted tooth — often a wisdom tooth — is one that cannot fully emerge. We assess it with X-rays and, when needed, remove it safely to prevent pain, infection and damage to neighbouring teeth.' },
+  { id: 15, title: 'Portable X-Ray Unit', desc: 'Mobile digital X-ray for diagnosis right at the chair.', color: '#2DD4BF',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/NomadPortableDentalXRayCropped.jpg',
+    info: 'Our portable X-ray unit brings digital imaging directly to your chair — no need to move rooms. It captures instant, high-quality images with minimal radiation, making diagnosis faster and more comfortable, especially for children and patients with limited mobility.' },
+  { id: 16, title: 'Fixed Zirconia Bridges', desc: 'Ultra-strong, metal-free zirconia bridges matched to your smile.', color: '#F472B6',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Zirconia_bridge.jpg/960px-Zirconia_bridge.jpg',
+    info: 'Zirconia bridges are the strongest tooth-coloured restoration available — a single block of high-strength ceramic that replaces missing teeth with a natural, metal-free look. They are biocompatible, stain-resistant and built to last, with no dark metal edge at the gumline.' },
+  { id: 17, title: 'Painless Extractions', desc: 'Gentle, virtually pain-free tooth removal.', color: '#FBBF24',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Air_Force_Lt._Col._Richard_Tate%2C_dentist%2C_performs_a_tooth_extraction.jpeg/960px-Air_Force_Lt._Col._Richard_Tate%2C_dentist%2C_performs_a_tooth_extraction.jpeg',
+    info: 'Modern anaesthesia and careful technique make extractions quick and virtually painless. From loose baby teeth to badly damaged molars, we numb the area completely, remove the tooth with minimal trauma and guide you through a smooth, comfortable recovery.' },
+  { id: 18, title: 'Implants', desc: 'Permanent, natural-feeling replacement for missing teeth.', color: '#34D399',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Single_crown_implant.jpg/960px-Single_crown_implant.jpg',
+    info: 'A dental implant is a titanium root placed in the jawbone that supports a natural-looking crown. It feels, looks and functions like a real tooth — no slipping, no grinding, no harm to neighbouring teeth. Implants are the gold standard for permanently replacing missing teeth.' },
+  { id: 19, title: 'Full Mouth Rehabilitation', desc: 'Complete restoration of your smile, bite and function.', color: '#FB7185',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Primero_kronen_na_productie%2C_voor_individualisering.JPG/960px-Primero_kronen_na_productie%2C_voor_individualisering.JPG',
+    info: 'Full mouth rehabilitation rebuilds damaged, worn or missing teeth across the entire arch — combining crowns, bridges, veneers and implants into one planned treatment. The result is a healthy bite, even chewing and a smile transformed from every angle.' },
+  { id: 20, title: 'Ultrasonic Scaling and Polishing', desc: 'Deep clean that removes stains, plaque and tartar.', color: '#818CF8',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Tooth_polishing_9332.JPG/960px-Tooth_polishing_9332.JPG',
+    info: 'Ultrasonic scaling vibrates away hard tartar and plaque above and below the gumline, while polishing smooths the teeth to slow new build-up and restore their natural shine. It is the most effective way to prevent gum disease and keep your smile bright.' },
+  { id: 21, title: 'Community Dentistry', desc: 'Oral health camps, awareness and care for the community.', color: '#2DD4BF',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/1st_Dental_Battalion_teaches_children_good_dental_hygeine_160223-M-QB247-008.jpg/960px-1st_Dental_Battalion_teaches_children_good_dental_hygeine_160223-M-QB247-008.jpg',
+    info: 'Beyond the clinic, we reach out to schools and communities with free check-up camps, hygiene awareness sessions and preventive care for those who need it most. Good oral health should be within everyone\'s reach — and that work starts in the community.' }
 ];
 
 // Backwards-compatible export name — /api/services now serves the facilities list.

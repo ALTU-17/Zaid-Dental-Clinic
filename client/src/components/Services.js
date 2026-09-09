@@ -92,6 +92,7 @@ const Services = ({ services }) => {
   const [visible, setVisible] = useState(false);
   const [selected, setSelected] = useState(null);
   const [imgFailed, setImgFailed] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -144,7 +145,7 @@ const Services = ({ services }) => {
           </p>
         </div>
 
-        <div className="services__grid">
+        <div className={`services__grid ${showAll ? 'services__grid--all' : ''}`}>
           {data.map((facility, i) => (
             <button
               key={facility.id}
@@ -162,6 +163,17 @@ const Services = ({ services }) => {
               </div>
             </button>
           ))}
+        </div>
+
+        <div className="services__more-wrap">
+          <button
+            type="button"
+            className={`services__more ${showAll ? 'services__more--open' : ''}`}
+            onClick={() => setShowAll((s) => !s)}
+          >
+            {showAll ? 'Show fewer treatments' : `View all ${data.length} treatments`}
+            {arrowIcon}
+          </button>
         </div>
       </div>
 

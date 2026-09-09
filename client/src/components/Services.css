@@ -142,6 +142,52 @@
   .services__grid { grid-template-columns: 1fr; }
 }
 
+/* "View more treatments" toggle — mobile only */
+.services__more-wrap {
+  display: none;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.services__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(45, 212, 191, 0.08);
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  color: #2DD4BF;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.services__more:hover {
+  background: #2DD4BF;
+  color: #0A0F1E;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(45, 212, 191, 0.3);
+}
+
+.services__more svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.services__more--open svg {
+  transform: rotate(90deg);
+}
+
+@media (max-width: 540px) {
+  .services__more-wrap { display: flex; }
+  .services__grid .service-card:nth-child(n+9) { display: none; }
+  .services__grid--all .service-card:nth-child(n+9) { display: block; }
+}
+
 /* Cards are now tappable buttons.
    NOTE: keep opacity/transform out of this block — the initial hidden
    state is set by the rule above and .service-card--visible must win the

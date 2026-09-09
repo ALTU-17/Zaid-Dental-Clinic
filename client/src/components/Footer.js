@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Footer.css';
 
 const scrollTo = (id) => {
@@ -26,8 +26,59 @@ const MailIcon = () => (
   </svg>
 );
 
+const CloseIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20" aria-hidden="true">
+    <path d="M18 6 6 18M6 6l12 12" />
+  </svg>
+);
+
+const legalDocs = {
+  privacy: {
+    title: 'Privacy Policy',
+    updated: 'Last updated: January 2026',
+    intro: 'At Zaid Dental Clinic, your trust matters. This policy explains what personal information we collect, how we use it, and the steps we take to keep it safe — whether you visit us in person or use this website.',
+    sections: [
+      { h: '1. Information We Collect', p: 'When you book an appointment or contact us, we collect the details you share: your name, phone number, email address, and any message or treatment information you provide. We may also keep a record of the treatment you received so we can care for you better.' },
+      { h: '2. How We Use Your Information', p: 'We use your details to confirm and manage appointments, send reminders, follow up on your treatment, and respond to your enquiries. We use the information only to serve you better — we never sell or rent your personal data to anyone.' },
+      { h: '3. Data Protection', p: 'Your information is stored securely and is accessible only to staff who need it to care for you. We keep records only as long as required and take reasonable precautions to protect them against loss or misuse.' },
+      { h: '4. Cookies & Website Use', p: 'Our website may use basic cookies to improve performance and your browsing experience. These do not collect personally identifying information about you.' },
+      { h: '5. Sharing With Third Parties', p: 'We do not share your personal information with third parties for marketing purposes. We may disclose information only where required by law or with your explicit consent.' },
+      { h: '6. Your Rights', p: 'You may ask us at any time to view, correct, or delete the personal information we hold about you. Simply contact us and we will act on your request promptly.' },
+      { h: '7. Contact Us', p: 'For any questions about this policy or your data, reach us at Drziamd10@gmail.com or +91 98765 43210, or visit us at Yashmeen Plaza, Roshan Gate Rd, Siddheshwar Colony, Aurangabad - 431001.' }
+    ]
+  },
+  terms: {
+    title: 'Terms of Service',
+    updated: 'Last updated: January 2026',
+    intro: 'These terms govern your use of the Zaid Dental Clinic website and the services we provide. By booking an appointment or using this site, you agree to them.',
+    sections: [
+      { h: '1. Acceptance of Terms', p: 'By accessing our website or booking an appointment, you confirm that you have read, understood, and agreed to these terms of service.' },
+      { h: '2. Appointments & Cancellations', p: 'Please arrive 10 minutes before your appointment time. If you need to reschedule or cancel, kindly let us know at least 24 hours in advance so we can offer the slot to another patient.' },
+      { h: '3. Fees & Payment', p: 'Treatment costs are explained clearly before we begin. Payment is due at the time of service unless other arrangements have been agreed in advance.' },
+      { h: '4. Patient Responsibilities', p: 'Please provide an accurate medical and dental history, inform us of any medications you take, and follow the post-treatment care instructions we give you for the best results.' },
+      { h: '5. Medical Disclaimer', p: 'Information on this website is provided for general guidance only and is not a substitute for a professional examination, diagnosis, or treatment by a qualified dentist.' },
+      { h: '6. Limitation of Liability', p: 'We strive to provide the highest standard of dental care. However, clinical outcomes can vary from patient to patient, and we cannot guarantee specific results for any treatment.' },
+      { h: '7. Changes to These Terms', p: 'We may update these terms from time to time. The latest version will always be shown on this page, and continued use of our services after changes means you accept the updated terms.' },
+      { h: '8. Contact Us', p: 'Questions about these terms? Contact us at Drziamd10@gmail.com or +91 98765 43210, or visit us at Yashmeen Plaza, Roshan Gate Rd, Siddheshwar Colony, Aurangabad - 431001.' }
+    ]
+  }
+};
+
 const Footer = ({ clinicData }) => {
   const year = new Date().getFullYear();
+  const [activeDoc, setActiveDoc] = useState(null);
+
+  // Close on Escape + lock body scroll while a legal doc is open
+  useEffect(() => {
+    if (!activeDoc) return;
+    const onKey = (e) => { if (e.key === 'Escape') setActiveDoc(null); };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [activeDoc]);
 
   const serviceLinks = [
     'Root Canal Treatment',
@@ -103,8 +154,8 @@ const Footer = ({ clinicData }) => {
         <div className="footer__bottom-inner">
           <p>© {year} Zaid Dental Clinic. All rights reserved.</p>
           <div className="footer__legal">
-            <span>Privacy Policy</span>
-            <span>Terms of Service</span>
+            <button type="button" onClick={() => setActiveDoc('privacy')}>Privacy Policy</button>
+            <button type="button" onClick={() => setActiveDoc('terms')}>Terms of Service</button>
           </div>
         </div>
 
@@ -135,6 +186,35 @@ const Footer = ({ clinicData }) => {
           </a>
         </div>
       </div>
+
+      {activeDoc && (
+        <div className="footer-modal" role="dialog" aria-modal="true" aria-label={legalDocs[activeDoc].title} onClick={() => setActiveDoc(null)}>
+          <div className="footer-modal__card" onClick={(e) => e.stopPropagation()}>
+            <button type="button" className="footer-modal__close" onClick={() => setActiveDoc(null)} aria-label="Close">
+              <CloseIcon />
+            </button>
+            <div className="footer-modal__head">
+              <div className="footer-modal__tag">Legal</div>
+              <h3 className="footer-modal__title">{legalDocs[activeDoc].title}</h3>
+              <p className="footer-modal__updated">{legalDocs[activeDoc].updated}</p>
+            </div>
+            <div className="footer-modal__body">
+              <p className="footer-modal__intro">{legalDocs[activeDoc].intro}</p>
+              {legalDocs[activeDoc].sections.map((s) => (
+                <div key={s.h} className="footer-modal__section">
+                  <h4>{s.h}</h4>
+                  <p>{s.p}</p>
+                </div>
+              ))}
+            </div>
+            <div className="footer-modal__foot">
+              <button type="button" className="footer-modal__cta" onClick={() => setActiveDoc(null)}>
+                I Understand
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </footer>
   );
 };
